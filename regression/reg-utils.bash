@@ -22,3 +22,18 @@ compile_model() {
   cd $DART/models/$model/work
   ./quickbuild.sh filter
 }
+
+# Function to clean up the build for a given model
+# # Arguments:
+#   $1 - model name (e.g., "lorenz_96")
+clean_model() {
+
+  if [ "$#" -ne 1 ]; then
+    echo "Error: usage clean_model [model]."
+    return 1
+  fi
+
+  local model=$1
+  cd $DART/models/$model/work
+  ./quickbuild.sh clean
+}

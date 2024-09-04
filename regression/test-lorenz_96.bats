@@ -1,23 +1,23 @@
+load reg-utils.bash
 
-load setup_file.bash
-
-# setup is called for every test
-setup() {
-  DART=/Users/hkershaw/DART/Projects/Developer_tests/bats-play/DART
-  GOLD=/Users/hkershaw/DART/Projects/Developer_tests/bats-play/DART.gold
-  
+setup_file() {
+  export DART=/Users/hkershaw/DART/Projects/Developer_tests/bats-play/DART
+  export GOLD=/Users/hkershaw/DART/Projects/Developer_tests/bats-play/DART.gold
+  export model=lorenz_96
 }
 
-@test "compile lorenz" {
-  compile_model lorenz_96 gfortran
+# teardown_file is called after all tests
+teardown_file() {
+    clean_model $model  
 }
 
+@test "compile lorenz 96" {
+  compile_model $model gfortran
+}
 
-@test "bitwise lorenz" {
+@test "bitwise lorenz 96" {
   load check-diffs-lorenz96.sh
-  cd $DART/models/lorenz_96/work
+  cd $DART/models/$model/work
   ./filter
-  checkdiffs . $GOLD/models/lorenz_96/work
+  checkdiffs . $GOLD/models/$model/work
 }
-
-
