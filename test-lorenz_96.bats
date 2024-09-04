@@ -9,11 +9,7 @@ setup() {
 }
 
 @test "compile lorenz" {
-  cd $DART/build_templates/
-  cp mkmf.template.gfortran mkmf.template
-  echo "NETCDF=/opt/local" >> mkmf.template
-  cd $DART/models/lorenz_96/work
-  ./quickbuild.sh filter
+  compile_model lorenz_96 gfortran
 }
 
 
