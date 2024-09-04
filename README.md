@@ -8,5 +8,16 @@
 * Utility scripts:
   - lint as much as possible
 
-Methods
+### Methods:
 * Test anything protocol, bats & fortran\_test\_anything & tapview
+
+### Reference cases:
+
+Initally collecting reference cases in
+
+/glade/work/hkershaw/GarbageCollection
+
+
+### Ideas: 
+* link developer tests to dartlib - currently a lot of duplicated compiling
+
