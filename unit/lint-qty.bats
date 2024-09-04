@@ -10,7 +10,7 @@ setup() {
 
 
 @test "Check for duplicate lines containing 'QTY' in files" {
-  run  ./duplicates.py $DIRECTORY_TO_CHECK
+  run  $BATS_TEST_DIRNAME/duplicates.py $DIRECTORY_TO_CHECK
   [ "$status" -eq 0 ] # check duplicates.py ran successfully
   refute_output --partial "Duplicate lines containing 'QTY' found"
 }
