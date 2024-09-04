@@ -24,6 +24,10 @@ def check_duplicates(file_path):
         print(f"No duplicate lines containing 'QTY' found in {file_path}.")
 
 def check_duplicates_in_directory(directory_path):
+    # Check if the directory exists
+    if not os.path.isdir(directory_path):
+        print(f"Error: Directory '{directory_path}' does not exist.")
+        sys.exit(1)
     pattern = os.path.join(directory_path, '*quantities_mod.f90')
     files = glob(pattern)
     
