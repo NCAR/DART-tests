@@ -1,14 +1,13 @@
 setup() {
-  DART=/Users/hkershaw/DART/Projects/Developer_tests/bats-play/DART
+  DART=/Users/hkershaw/DART/Projects/NumericalComp/DART
   cd $DART/build_templates/
   cp mkmf.template.gfortran mkmf.template
   echo "NETCDF=/opt/local" >> mkmf.template
-  cd $DART/developer_tests/qceff/work
-  ./quickbuild.sh
 }
 
 @test "qceff" {
   cd $DART/developer_tests/qceff/work
+  ./quickbuild.sh
   ./runall.sh > out
   pass_count=$(grep -o "PASS" out | wc -l)
   [ "$pass_count" -eq 14 ]
@@ -16,3 +15,6 @@ setup() {
   [ "$fail_count" -eq 0 ]
 }
 
+teardown() {
+  ./quickbuild.sh clean
+}
