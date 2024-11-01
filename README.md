@@ -1,5 +1,16 @@
 ## Playground repo for DART tests
 
+
+To clone:
+
+git clone --recurse-submodules https://github.com/NCAR/DART-tests.git
+
+BATS is a submodule
+
+deps (dependency directory) 
+ - fortran-testanythin
+ - tapview
+
 ### Goals:
 * regression tests for models
 * regression tests for converters
