@@ -32,3 +32,8 @@ Initally collecting reference cases in
 ### Ideas: 
 * link developer tests to dartlib - currently a lot of duplicated compiling
 
+### Questions:
+
+Performance testing for algorithm changes, e.g. https://github.com/NCAR/DART-tests/issues/8
+part of a Tests repo or a Performance repo?
+
